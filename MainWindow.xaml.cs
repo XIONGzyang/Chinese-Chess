@@ -144,13 +144,15 @@ namespace ChineseChess_G1
         {
             if (Board.currentColour % 2 == 0)
             {
-                txtblkBlack.SetValue(VisibilityProperty, Visibility.Visible);
-                txtblkRed.SetValue(VisibilityProperty, Visibility.Hidden);
+                txtTurn.Text = "Black's Move";
+                txtTurn.Background = Brushes.Black;
+                txtTurn.SetValue(VisibilityProperty, Visibility.Visible);
             }
             else
             {
-                txtblkRed.SetValue(VisibilityProperty, Visibility.Visible);
-                txtblkBlack.SetValue(VisibilityProperty, Visibility.Hidden);
+                txtTurn.Text = "Red's Move";
+                txtTurn.Background = Brushes.Red;
+                txtTurn.SetValue(VisibilityProperty, Visibility.Visible);
             }
             }
 
@@ -168,7 +170,6 @@ namespace ChineseChess_G1
                 $"Black's Regret({Board.regretAmount[Board.currentColour % 2]})";
             // apprear the current colour textblock, regret button, restart button
             // as well as disappear the start button
-            txtblkRed.SetValue(VisibilityProperty, Visibility.Visible);
             btnStart.SetValue(VisibilityProperty, Visibility.Hidden);
             btnRestart.SetValue(VisibilityProperty, Visibility.Visible);
             btnRegret.SetValue(VisibilityProperty, Visibility.Visible);
