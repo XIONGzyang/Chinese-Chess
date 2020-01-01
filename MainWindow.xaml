@@ -28,9 +28,8 @@
                 <Border BorderBrush="Black" BorderThickness="0,2,0,0" Margin="0,20,0,10" Height="5" Width="170"/>
                 <TextBlock Text="Message:" FontSize="20"/>
                 <TextBlock Name="txtblkMessage" Width="100" FontSize="20" Margin="0,15,0,15" TextAlignment="Center" TextWrapping="Wrap"/>
-                <TextBox Name="txtblkBlack"  Background="Black" Foreground="White" Text="Black's move" VerticalAlignment="Top" FontSize="20" TextAlignment="Center" Visibility="Hidden"/>
-                <TextBox x:Name="txtblkRed" Background="Red" Foreground="White" Text="Red's move" FontSize="20" TextAlignment="Center" Visibility="Hidden"/>
-                
+                <TextBox Name="txtTurn"   Foreground="White" VerticalAlignment="Top" FontSize="20" TextAlignment="Center" Visibility="Hidden"/>
+               
 
             </StackPanel>
         </StackPanel>
