@@ -10,72 +10,130 @@
         <ImageBrush ImageSource="/Images/background.jpg"/>
     </Window.Background>
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25,25,10,25">
-            <!--The chess board layout-->
-            <Grid Name="chessPanel" Height="580" Width="520" Margin="0,0,35,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" Margin="25,25,25,25">
+            <!--The chess panel layout-->
+            <Grid Name="chessPanel" Height="580" Width="520" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <Grid.Background>
                     <ImageBrush ImageSource="/Images/panel.png"/>
                 </Grid.Background>
-                <!-- Implement of pieces-->
+                <!-- Implement of chess board-->
             </Grid>
-            
-            <!--Messages and options layout-->
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="580" Margin="0,0,20,0">
-                <TextBlock Text="Founction Button: " FontSize="20" Margin="0,40,0,0"/>
-                <Button Name="btnRestart" FontSize="20" Margin="0,10,0,0" Background="Blue"  Foreground="White" Content="Restart" Click="btnRestart_Click" Visibility="Hidden">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button Name="btnStart"  FontSize="20" Content="Start" Background="Blue"  Foreground="White" Click="btnStart_Click">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button Name="btnRegret" FontSize="20" Background="Blue"  Foreground="White" Content="Regret" Margin="0,0,0,0" Click="btnRegret_Click" Visibility="Hidden">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Border BorderBrush="Black" BorderThickness="0,2,0,0" Margin="0,20,0,10" Height="5" Width="170"/>
-                <TextBlock Text="Message:" FontSize="20"/>
-                <TextBlock Name="txtblkMessage" Width="100" FontSize="20" Margin="0,15,0,15" TextAlignment="Center" TextWrapping="Wrap"/>
-                <TextBox Name="txtTurn"   Foreground="White" VerticalAlignment="Top" FontSize="20" TextAlignment="Center" Visibility="Hidden"/>
 
-            </StackPanel>
+            <!--Messages and options layout-->
+            <StackPanel Name="Sidebar" Height="580" Margin="25,0,0,0">
+                <StackPanel Name="GameControl">
+                    <TextBlock Name="GameControlTitle" Text="Founction Buttons: " FontWeight="Bold" FontSize="20" FontStyle="Italic" Margin="0,0,0,15"/>
+                    <Button Name="btnRestart" FontSize="20"  Background="Blue" Foreground="White" Content="Restart" Click="btnRestart_Click" Margin="0,0,0,10" Visibility="Collapsed">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="btnStart"  FontSize="20"  Content="Start" Background="Blue"  Foreground="White" Click="btnStart_Click" Margin="0,0,0,10">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="btnRegret" FontSize="20"  Background="Blue" Foreground="White" Content="Regret" Click="btnRegret_Click" Margin="0,0,0,10" Visibility="Collapsed">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+                <StackPanel Name="ManualDemo">
+                    <Border BorderBrush="Black" BorderThickness="0,2,0,0" Margin="0,15,0,25" Width="180"/>
+                    <TextBlock Name="ManualDemoTitle" Text="Manual Demo: " FontWeight="Bold" FontSize="20" FontStyle="Italic" Margin="0,0,0,15"/>
+                    <Button Name="btnPlay" FontSize="20" Background="Blue" Foreground="White" Content="Play Manual" Click="btnPlay_Click" Margin="0,0,0,10" Visibility="Visible">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="btnSave"  FontSize="20" Content="Save Manual" Background="Blue"  Foreground="White" Click="btnSave_Click"  Margin="0,0,0,10">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="btnChoose" FontSize="20" Background="Blue" Foreground="White" Content="Choose Manual" Click="btnChoose_Click" Margin="0,0,0,10" Visibility="Visible">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Border BorderBrush="Black" BorderThickness="0,2,0,0" Margin="0,15,0,25" Width="180"/>
+                </StackPanel>
+                <StackPanel x:Name="Message">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="AntiqueWhite" Opacity="0.8"/>
+                    </StackPanel.Background>
+                    <TextBlock Text="Message:" FontSize="20" FontStyle="Italic" FontWeight="Bold"/>
+                    <TextBox Name="txtblkCrrClr" VerticalAlignment="Bottom" Margin="0,15,0,15" Foreground="White" FontSize="20" TextAlignment="Center" Visibility="Hidden"/>
+                    <TextBlock Name="txtblkMessage" Margin="0,0,0,15" FontWeight="Bold" FontSize="20" TextAlignment="Center" TextWrapping="Wrap"/>
+                </StackPanel>
+                </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
